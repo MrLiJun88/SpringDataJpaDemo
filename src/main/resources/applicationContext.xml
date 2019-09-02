@@ -46,7 +46,7 @@
         <property name="jdbcUrl" value="${database.url}"/>
     </bean>
 
-    <!-- 3. 整合spring-data-jap-->
+    <!-- 3. 整合spring-data-jap,声明要对dao包下的所有接口生成动态代理对象-->
     <jpa:repositories base-package="cn.njcit.dao" transaction-manager-ref="transactionManager"
     entity-manager-factory-ref="eneityManagerFactory">
     </jpa:repositories>
