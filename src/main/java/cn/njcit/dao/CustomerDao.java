@@ -72,8 +72,7 @@ public interface CustomerDao extends JpaRepository<Customer, Integer>, JpaSpecif
      *     2.根据属性模糊查询
      *             findBy + 属性名称 + "查询方式(Like | isnull)",实现模糊查询
      *             如 ： findByCustNameLike(String name)
-     *     3.
-     *     多条件查询：
+     *     3.多条件查询：
      *       findBy + 属性名 + "查询方式" + "多条件连接符"(and | or) + 其他属性名 + "查询方式"
      */
     Customer findByName(String name);
