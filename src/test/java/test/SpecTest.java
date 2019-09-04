@@ -60,6 +60,7 @@ public class SpecTest {
         System.out.println(customer);
     }
 
+    /**根据姓名与所属行业实现多条件查询*/
     @Test
     public void testSelectByNameAndIndustry(){
         Specification<Customer> spec = (Root<Customer> root,
