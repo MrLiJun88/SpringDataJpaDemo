@@ -63,6 +63,15 @@ import java.util.Set;
     /**
      * @OneToMany:放弃维护权
      *    取值：对方配置关系的属性名称
+     *    mappedBy:对方配置关系的属性名称
+     *    cascade:配置级联
+     *         CascadeType.all ：所有
+     *                     MERGE: 更新
+     *                     PERSIST: 保存
+     *                     REMOVE : 删除
+     *   fetch:配置关联对象的加载方式：
+     *        EAGER:立即加载
+     *        LAZY: 延迟加载
      */
     @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
     private Set<LinkMan> linkManSet = new HashSet<>();

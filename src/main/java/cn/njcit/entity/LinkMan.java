@@ -34,8 +34,9 @@ public class LinkMan {
      *        name:外键字段名称
      *        referencedColumnName:参照的主表字段名称
      *       在客户实体类上(一的一方)添加了外键的配置，所以对于客户而言，也具备了维护外键的作用
+     *       fetch = FetchType.LAZY: 设置延迟加载
      */
-    @ManyToOne(targetEntity = Customer.class)
+    @ManyToOne(targetEntity = Customer.class,fetch = FetchType.LAZY)
     @JoinColumn(name = "lkm_cust_id",referencedColumnName = "cust_id")
      private Customer customer;
 

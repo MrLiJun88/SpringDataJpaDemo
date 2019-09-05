@@ -33,7 +33,7 @@ public class User {
      *        name:定义的中间表外键名
      *        referencedColumnName:参照的表的主键名称
      */
-    @ManyToMany(targetEntity = Role.class)
+    @ManyToMany(targetEntity = Role.class,cascade = CascadeType.ALL)
     @JoinTable(name = "mid_user_role",
             joinColumns = {@JoinColumn(name = "mid_user_id",referencedColumnName = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "mid_role_id",referencedColumnName = "role_id")}

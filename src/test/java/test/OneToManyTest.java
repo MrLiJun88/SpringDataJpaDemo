@@ -58,12 +58,10 @@ public class OneToManyTest {
     @Transactional//配置事务
     @Rollback(value = false)//设置不自动回滚
     public void testAddCustomerAndLinkMan3(){
-        Customer customer = new Customer();
-        customer.setName("zhaoliu");
-        customer.setIndustry("C++");
+        Customer customer = customerDao.findOne(1);
 
         LinkMan linkMan = new LinkMan();
-        linkMan.setLm_name("linkMan2");
+        linkMan.setLm_name("linkMan7");
         linkMan.setLm_gender("M");
         /**将多的一方加入到一的一方集合中
          * 由于配置了一的一方到多的一方的关联关系，所以当保存的时候，就已经对外键进行赋值
@@ -73,7 +71,6 @@ public class OneToManyTest {
         customer.getLinkManSet().add(linkMan);
         linkMan.setCustomer(customer);
 
-        customerDao.save(customer);
         linkManDao.save(linkMan);
     }
 

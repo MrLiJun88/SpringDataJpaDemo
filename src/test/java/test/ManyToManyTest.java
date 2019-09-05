@@ -26,8 +26,8 @@ public class ManyToManyTest {
     @Rollback(value = false)
     public void testAdd(){
         User user = new User();
-        user.setUser_Name("lisi");
-        user.setSubject("Java");
+        user.setUser_Name("zhaoliu");
+        user.setSubject("C++");
 
         Role role = new Role();
         role.setRole_Name("father");
@@ -39,5 +39,30 @@ public class ManyToManyTest {
 
         userDao.save(user);
         roleDao.save(role);
+    }
+    /**测试级联添加，保存一个用户的同时，保存它的关联角色*/
+    @Test
+    @Transactional
+    @Rollback(value = false)
+    public void testAddByCascade(){
+        User user = new User();
+        user.setUser_Name("wangwu");
+        user.setSubject("php");
+
+        Role role = new Role();
+        role.setRole_Name("doctor");
+
+        user.getRoleSet().add(role);
+        role.getUserSet().add(user);
+
+        userDao.save(user);
+    }
+    /**测试级联删除，保存一个用户的同时，删除它的关联角色*/
+    @Test
+    @Transactional
+    @Rollback(value = false)
+    public void testDeleteByCascade(){
+       User user = userDao.findOne(1);
+       userDao.delete(user);
     }
 }
